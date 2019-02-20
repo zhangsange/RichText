@@ -9,6 +9,8 @@ import android.widget.Toast;
 import com.zzhoujay.richtext.RichText;
 import com.zzhoujay.richtext.callback.OnImageClickListener;
 
+import org.xml.sax.Attributes;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -44,7 +46,7 @@ public class TestActivity extends AppCompatActivity {
         richText = RichText.from(test)
                 .imageClick(new OnImageClickListener() {
                     @Override
-                    public void imageClicked(List<String> imageUrls, int position) {
+                    public void imageClicked(List<String> imageUrls, int position, Attributes attributes) {
                         Calendar calendar = Calendar.getInstance();
                         int m = calendar.get(Calendar.MINUTE);
                         int s = calendar.get(Calendar.SECOND);

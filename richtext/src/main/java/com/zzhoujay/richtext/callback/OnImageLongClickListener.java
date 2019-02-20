@@ -1,5 +1,7 @@
 package com.zzhoujay.richtext.callback;
 
+import org.xml.sax.Attributes;
+
 import java.util.List;
 
 /**
@@ -14,5 +16,5 @@ public interface OnImageLongClickListener {
      * @param position  　当前图片位置
      * @return true:已处理，false:未处理并交由imageClicked处理
      */
-    boolean imageLongClicked(List<String> imageUrls, int position);
+    boolean imageLongClicked(List<String> imageUrls, int position, Attributes attributes);
 }

@@ -9,12 +9,15 @@ import android.text.style.ClickableSpan;
 import android.text.style.ImageSpan;
 import android.text.style.URLSpan;
 
+import com.zzhoujay.html.ImageSpanWithAttr;
 import com.zzhoujay.richtext.LinkHolder;
 import com.zzhoujay.richtext.RichTextConfig;
 import com.zzhoujay.richtext.callback.OnImageClickListener;
 import com.zzhoujay.richtext.callback.OnImageLongClickListener;
 import com.zzhoujay.richtext.spans.ClickableImageSpan;
 import com.zzhoujay.richtext.spans.LongClickableURLSpan;
+
+import org.xml.sax.Attributes;
 
 import java.util.ArrayList;
 
@@ -102,6 +105,10 @@ public class CachedSpannedParser {
                     ImageSpan imageSpan = iss[i];
                     String imageUrl = imageSpan.getSource();
                     imageUrls.add(imageUrl);
+                    Attributes attributes=null;
+                    if (imageSpan instanceof ImageSpanWithAttr) {
+                        attributes = ((ImageSpanWithAttr)imageSpan).getAttr();
+                    }
 
                     int start = ssb.getSpanStart(imageSpan);
                     int end = ssb.getSpanEnd(imageSpan);
@@ -121,7 +128,7 @@ public class CachedSpannedParser {
                     if (drawable == null) {
                         drawable = new ColorDrawable(Color.TRANSPARENT);
                     }
-                    ClickableImageSpan cacheImageSpan = new ClickableImageSpan(drawable, imageUrls, i, onImageClickListener, onImageLongClickListener);
+                    ClickableImageSpan cacheImageSpan = new ClickableImageSpan(drawable, imageUrls, i,attributes, onImageClickListener, onImageLongClickListener);
                     ssb.removeSpan(imageSpan);
                     ssb.setSpan(cacheImageSpan, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }

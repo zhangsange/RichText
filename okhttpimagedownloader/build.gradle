@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: "guru.stefma.bintrayrelease"
+//apply plugin: 'com.novoda.bintray-release'
+
 
 def version_code = 3
 def version_name = "1.0.2"
@@ -34,18 +36,18 @@ dependencies {
     compile 'com.zzhoujay.richtext:richtext:3.0.1'
 }
 
-publish {
-
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    userOrg = properties.getProperty("bintray.user")
-    groupId = "com.zzhoujay.okhttpimagedownloader"
-    artifactId = 'OkHttpImageDownloader'
-    publishVersion = version_name
-    desc = '使用okhttp实现的图片下载器'
-    website = 'https://github.com/zzhoujay/RichTex'
-
-    bintrayUser=properties.getProperty("bintray.user")
-    bintrayKey=properties.getProperty("bintray.key")
-
-}
+//publish {
+//
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    userOrg = properties.getProperty("bintray.user")
+//    groupId = "com.zzhoujay.okhttpimagedownloader"
+//    artifactId = 'OkHttpImageDownloader'
+//    publishVersion = version_name
+//    desc = '使用okhttp实现的图片下载器'
+//    website = 'https://github.com/zzhoujay/RichTex'
+//
+//    bintrayUser=properties.getProperty("bintray.user")
+//    bintrayKey=properties.getProperty("bintray.key")
+//
+//}

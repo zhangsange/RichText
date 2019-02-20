@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: "guru.stefma.bintrayrelease"
+//apply plugin: 'com.novoda.bintray-release'
 
 def version_code = 64
 def version_name = "3.0.7"
@@ -34,20 +35,17 @@ dependencies {
     compile 'com.zzhoujay.markdown:markdown:1.0.5'
     compile 'com.jakewharton:disklrucache:2.0.2'
     compile 'com.android.support:support-v4:26.1.0'
+    implementation 'com.zz.htmlparser:htmlparser:1.0.1'
+}
+
+version = "1.0.0"
+group = "com.zz.richtext"
+androidArtifact { // 2
+    artifactId = "richtext"
 }
 
 publish {
-
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    userOrg = properties.getProperty("bintray.user")
-    bintrayUser=properties.getProperty("bintray.user")
-    bintrayKey=properties.getProperty("bintray.key")
-
-    groupId = "com.zzhoujay.richtext"
-    artifactId = 'richtext'
-    publishVersion = version_name
-    desc = 'Android端的富文本解析器'
-    website = 'https://github.com/zzhoujay/RichTex'
-
+    userOrg = 'geek10010'
+    desc = 'android 富文本显示器'
+    website = 'https://github.com/zhangsange/Html'
 }
