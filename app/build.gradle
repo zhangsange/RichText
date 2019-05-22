@@ -31,7 +31,11 @@ dependencies {
     testCompile 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
-    implementation project(':richtext')
+    //富文本
+    api 'com.github.zhangsange:RichText:v1.0.4'
+//    //html解析器
+//    api ''
+//    implementation project(':richtext')
 //    compile project(':okhttpimagedownloader')
 //        compile 'com.zzhoujay.richtext:richtext:3.0.7'
 //    compile 'com.zzhoujay:html:1.0.1'
