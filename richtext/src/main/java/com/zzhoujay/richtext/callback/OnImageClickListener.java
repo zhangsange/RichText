@@ -1,5 +1,7 @@
 package com.zzhoujay.richtext.callback;
 
+import com.zzhoujay.richtext.RichText;
+
 import org.xml.sax.Attributes;
 
 import java.util.List;
@@ -15,5 +17,5 @@ public interface OnImageClickListener {
      * @param imageUrls 本篇富文本内容里的全部图片
      * @param position  点击处图片在imageUrls中的位置
      */
-    void imageClicked(List<String> imageUrls, int position, Attributes attributes);
+    void imageClicked(List<String> imageUrls, int position, Attributes attributes, RichText richText);
 }

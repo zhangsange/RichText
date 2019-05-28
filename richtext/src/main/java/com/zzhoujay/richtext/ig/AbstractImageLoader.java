@@ -177,6 +177,7 @@ abstract class AbstractImageLoader<T> implements ImageLoader {
 
         // start gif play
         if (imageWrapper.isGif() && this.holder.isAutoPlay()) {
+            this.holder.setIsGif(true);
             imageWrapper.getAsGif().start(textView);
         }
         // cache size

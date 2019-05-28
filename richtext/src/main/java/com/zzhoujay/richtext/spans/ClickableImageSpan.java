@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 import android.view.View;
 
+import com.zzhoujay.richtext.RichText;
 import com.zzhoujay.richtext.callback.OnImageClickListener;
 import com.zzhoujay.richtext.callback.OnImageLongClickListener;
 
@@ -26,6 +27,7 @@ public class ClickableImageSpan extends ImageSpan implements LongClickableSpan {
     private final List<String> imageUrls;
     private final OnImageLongClickListener onImageLongClickListener;
     private final OnImageClickListener onImageClickListener;
+    private RichText richText;
 
     public ClickableImageSpan(Drawable drawable, ClickableImageSpan clickableImageSpan, OnImageClickListener onImageClickListener, OnImageLongClickListener onImageLongClickListener) {
         super(drawable, clickableImageSpan.getSource());
@@ -42,8 +44,9 @@ public class ClickableImageSpan extends ImageSpan implements LongClickableSpan {
         this.onImageClickListener = onImageClickListener;
         this.onImageLongClickListener = onImageLongClickListener;
     }
-    public ClickableImageSpan(Drawable drawable, List<String> imageUrls, int position, Attributes attributes,OnImageClickListener onImageClickListener, OnImageLongClickListener onImageLongClickListener) {
+    public ClickableImageSpan(Drawable drawable, List<String> imageUrls, int position, RichText richText, Attributes attributes, OnImageClickListener onImageClickListener, OnImageLongClickListener onImageLongClickListener) {
         super(drawable, imageUrls.get(position));
+        this.richText = richText;
         this.atrr = attributes;
         this.imageUrls = imageUrls;
         this.position = position;
@@ -73,13 +76,13 @@ public class ClickableImageSpan extends ImageSpan implements LongClickableSpan {
     @Override
     public void onClick(View widget) {
         if (onImageClickListener != null) {
-            onImageClickListener.imageClicked(imageUrls, position,atrr);
+            onImageClickListener.imageClicked(imageUrls, position,atrr,richText);
         }
     }
 
     @Override
     public boolean onLongClick(View widget) {
-        return onImageLongClickListener != null && onImageLongClickListener.imageLongClicked(imageUrls, position,atrr);
+        return onImageLongClickListener != null && onImageLongClickListener.imageLongClicked(imageUrls, position,atrr,richText);
     }
 
     public ClickableImageSpan copy() {

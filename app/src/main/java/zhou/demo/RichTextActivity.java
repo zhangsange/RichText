@@ -36,7 +36,7 @@ public class RichTextActivity extends Activity {
                 .autoPlay(true)
                 .imageClick(new OnImageClickListener() {
                     @Override
-                    public void imageClicked(List<String> imageUrls, int position, Attributes attributes) {
+                    public void imageClicked(List<String> imageUrls, int position, Attributes attributes,RichText richText) {
                         if (attributes!=null) {
                             System.out.println("title===="+attributes.getValue("title")+"alt===="+attributes.getValue("alt"));
                         }

@@ -106,7 +106,7 @@ public class RichText implements ImageGetterWrapper, ImageLoadNotify {
 
     private static final HashMap<String, Object> GLOBAL_ARGS = new HashMap<>();
 
-    private HashMap<String, ImageHolder> imageHolderMap;
+    public HashMap<String, ImageHolder> imageHolderMap;
 
     private RichState state = RichState.ready;
 
